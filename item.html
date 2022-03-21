@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <title>item.json</title>
+   <script type="text/javascript" src="json.js"></script>
+  </head>
+  <body>
+   <form id="form1" action="#">
+    名前 <br>
+     <input type="text" id="item_name" value="" class="input"><br>
+    <br>
+    アイテムID <br>
+     <input type="text" id="item_id" value="ktfood:grim_drink1" class="input"><br>
+    <br>
+    満腹度<br>
+    <input type="text" id="saturation_num" value="0" class="input"><br>
+    <br>
+    隠し満腹度倍率<br>
+    <input type="text" id="hiddensaturation_num" value="0" class="input"><br>
+    <br>
+    食べるのにかかる時間(秒)<br>
+    <input type="text" id="use_duration" value="1.6" class="input"><br>
+    <br>
+    食べる時のアニメーション<br>
+    <select id="animation_type" style="width: 120px; height: 30px; font-size: 12pt;">
+    <option value="eat">eat</option>
+    <option value="drink">drink</option>
+    </select>
+    <br>
+    コマンド<br>
+    <textarea id="commands" class="input" style="height: 60px;"></textarea><br>
+    <input type="button" onclick="form1()" value="生成" class="input button">
+   </form><br><br><br>
+   <textarea readonly name="output" rows="30" cols="80" id="json_output"></textarea>
+  </body>
+ </html>
