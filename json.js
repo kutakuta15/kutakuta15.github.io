@@ -1,4 +1,5 @@
 function form1(){
+  let file_name = document.getElementById("file_name").value;
   let item_name = document.getElementById("item_name").value;
   let item_id = document.getElementById("item_id").value;
   let saturation_num = document.getElementById("saturation_num").value;
@@ -44,6 +45,11 @@ function form1(){
   }
 };
   let Encodejson = JSON.stringify(JSONData, null, 2);
+  let DLlink = document.createElement( 'a' );
+	DLlink.href = window.URL.createObjectURL( new Blob( [Encodejson] ) );
+	DLlink.download = `${file_name}.json`;
+	DLlink.click();
+  
   document.getElementById("json_output").innerHTML = Encodejson;
 
   let textarea = document.getElementsByTagName("textarea")[1];
