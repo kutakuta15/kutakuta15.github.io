@@ -43,7 +43,7 @@ function form1(){
     }
   }
 };
-  let Encodejson = JSON.stringify(JSONData);
+  let Encodejson = JSON.stringify(JSONData, null, 2);
   document.getElementById("json_output").innerHTML = Encodejson;
 
   let textarea = document.getElementsByTagName("textarea")[1];
