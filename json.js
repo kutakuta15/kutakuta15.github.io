@@ -2,9 +2,9 @@ function form1(){
   let file_name = document.getElementById("file_name").value;
   let item_name = document.getElementById("item_name").value;
   let item_id = document.getElementById("item_id").value;
-  let saturation_num = document.getElementById("saturation_num").value;
-  let hiddensaturation_num = document.getElementById("hiddensaturation_num").value;
-  let use_duration = document.getElementById("use_duration").value;
+  let saturation_num = Number(document.getElementById("saturation_num").value);
+  let hiddensaturation_num = Number(document.getElementById("hiddensaturation_num").value);
+  let use_duration = Number(document.getElementById("use_duration").value);
   let commanduse = document.getElementById('commanduse').checked;
   let animation_type = document.getElementById("animation_type").value;
   let JSONData = {
