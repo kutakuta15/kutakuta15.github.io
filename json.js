@@ -17,7 +17,7 @@ function form1(){
 
     "components": {
       "minecraft:icon": {
-        "texture": "grim_food_1"
+        "texture": "food"
       },
       "minecraft:display_name": {
         "value": item_name
