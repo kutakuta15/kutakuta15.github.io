@@ -34,17 +34,17 @@ function form1(){
   if(commanduse){
     let commands = document.getElementById("commands").value;
     commands = commands.split('\n');
-    JSONData.minecraft:item.minecraft:food["on_consume"] = {
+    JSONData["minecraft:item"]["components"]["minecraft:food"]["on_consume"] = {
           "event": "food",
           "target": "self"
         };
-    JSONData.minecraft:item["events"] =      "food": {
+   JSONData["minecraft:item"]["events"] = {};
+   JSONData["minecraft:item"]["events"]["food"] = {
         "run_command": {
           "command": commands,
           "target": "holder"
         }        
       };
-  };
   let Encodejson = JSON.stringify(JSONData, null, 2);
   let DLlink = document.createElement( 'a' );
 	DLlink.href = window.URL.createObjectURL( new Blob( [Encodejson] ) );
