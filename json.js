@@ -23,10 +23,10 @@ function form1(){
         "value": item_name
       },
       "minecraft:use_animation": animation_type,
-      "minecraft:use_duration": use_duration,
+      "minecraft:use_duration": Number(use_duration),
       "minecraft:food": {
-        "nutrition": saturation_num,
-        "saturation_modifier": hiddensaturation_num
+        "nutrition": Number(saturation_num),
+        "saturation_modifier": Number(hiddensaturation_num)
       }
     }
   }
