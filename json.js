@@ -28,23 +28,23 @@ function form1(){
       "minecraft:use_duration": use_duration,
       "minecraft:food": {
         "nutrition": saturation_num,
-        "saturation_modifier": hiddensaturation_num,
-        "on_consume": {
-          "event": "food",
-          "target": "self"
-        }
-      }
-    },
-    "events":{
-      "food": {
-        "run_command": {
-          "command": commands,
-          "target": "holder"
-        }        
+        "saturation_modifier": hiddensaturation_num
       }
     }
   }
 };
+  if(commanduse){
+    JSONData.minecraft:item.minecraft:food["on_consume"] = {
+          "event": "food",
+          "target": "self"
+        };
+    JSONData.minecraft:item["events"] =      "food": {
+        "run_command": {
+          "command": commands,
+          "target": "holder"
+        }        
+      };
+  };
   let Encodejson = JSON.stringify(JSONData, null, 2);
   let DLlink = document.createElement( 'a' );
 	DLlink.href = window.URL.createObjectURL( new Blob( [Encodejson] ) );
