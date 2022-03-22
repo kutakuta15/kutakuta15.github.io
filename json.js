@@ -5,6 +5,7 @@ function form1(){
   let saturation_num = document.getElementById("saturation_num").value;
   let hiddensaturation_num = document.getElementById("hiddensaturation_num").value;
   let use_duration = document.getElementById("use_duration").value;
+  let commanduse = document.getElementById('commanduse').checked;
   let animation_type = document.getElementById("animation_type").value;
   let commands = document.getElementById("commands").value;
   commands = commands.split('\n');
