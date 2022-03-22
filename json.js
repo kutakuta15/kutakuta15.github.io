@@ -7,8 +7,6 @@ function form1(){
   let use_duration = document.getElementById("use_duration").value;
   let commanduse = document.getElementById('commanduse').checked;
   let animation_type = document.getElementById("animation_type").value;
-  let commands = document.getElementById("commands").value;
-  commands = commands.split('\n');
   let JSONData = {
   "format_version": "1.18.0",
   "minecraft:item": {
@@ -34,6 +32,8 @@ function form1(){
   }
 };
   if(commanduse){
+    let commands = document.getElementById("commands").value;
+    commands = commands.split('\n');
     JSONData.minecraft:item.minecraft:food["on_consume"] = {
           "event": "food",
           "target": "self"
