@@ -53,8 +53,8 @@ function form1(){
 	DLlink.click();
   
   document.getElementById("json_output").innerHTML = Encodejson;
-
-  let textarea = document.getElementsByTagName("textarea")[1];
+  let a = document.getElementsByTagName("textarea").length -1
+  let textarea = document.getElementsByTagName("textarea")[a];
   // 文字をすべて選択
   textarea.select();
   // コピー
