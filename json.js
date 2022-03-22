@@ -45,6 +45,7 @@ function form1(){
           "target": "holder"
         }        
       };
+  };
   let Encodejson = JSON.stringify(JSONData, null, 2);
   let DLlink = document.createElement( 'a' );
 	DLlink.href = window.URL.createObjectURL( new Blob( [Encodejson] ) );
