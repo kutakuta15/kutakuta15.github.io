@@ -3,11 +3,8 @@ function form1(){
   let item_name = document.getElementById("item_name").value;
   let item_id = document.getElementById("item_id").value;
   let saturation_num = document.getElementById("saturation_num").value;
-  saturation_num = Number(saturation_num);
   let hiddensaturation_num = document.getElementById("hiddensaturation_num").value;
-  hiddensaturation_num = Number(hiddensaturation_num);
   let use_duration = document.getElementById("use_duration").value;
-  use_duration = Number(use_duration);
   let commanduse = document.getElementById('commanduse').checked;
   let animation_type = document.getElementById("animation_type").value;
   let JSONData = {
@@ -20,16 +17,16 @@ function form1(){
 
     "components": {
       "minecraft:icon": {
-        "texture": "grim_food_1"
+        "texture": item_id
       },
       "minecraft:display_name": {
         "value": item_name
       },
       "minecraft:use_animation": animation_type,
-      "minecraft:use_duration": use_duration,
+      "minecraft:use_duration": Number(use_duration),
       "minecraft:food": {
-        "nutrition": saturation_num,
-        "saturation_modifier": hiddensaturation_num
+        "nutrition": Number(saturation_num),
+        "saturation_modifier": Number(hiddensaturation_num)
       }
     }
   }
