@@ -67,6 +67,7 @@ function formB1(){
   let file_name = document.getElementById("file_name").value;
   let item_id = document.getElementById("item_id").value;
   let amount = document.getElementById("amount").value;
+  let income = document.getElementById("income").checked;
   let money = document.getElementById("money").value;
   let user_id = document.getElementById("user_id").value;
   let commands = `give @p[tag=!sneak,r=1,scores={sil=${amount}..}] ${item_id} 1 `;
