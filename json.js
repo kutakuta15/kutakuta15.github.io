@@ -62,3 +62,24 @@ function form1(){
 
 }
 
+
+function formB1(){
+  let item_id = document.getElementById("item_id").value;
+  let amount = document.getElementById("saturation_num").value;
+  let money = document.getElementById("hiddensaturation_num").value;
+  let user_id = document.getElementById("use_duration").value;
+  let commands = `give @p[tag=!sneak,r=1,scores={sil=1000..}] ktfood:grim_drink3 1 `;
+  let DLlink = document.createElement( 'a' );
+	DLlink.href = window.URL.createObjectURL( new Blob( [Encodejson] ) );
+	DLlink.download = `${file_name}.json`;
+	DLlink.click();
+  
+  document.getElementById("json_output").innerHTML = Encodejson;
+  let a = document.getElementsByTagName("textarea").length -1
+  let textarea = document.getElementsByTagName("textarea")[a];
+  // 文字をすべて選択
+  textarea.select();
+  // コピー
+  document.execCommand("copy");
+
+}
