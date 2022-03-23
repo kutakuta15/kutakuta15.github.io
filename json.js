@@ -64,11 +64,12 @@ function form1(){
 
 
 function formB1(){
+  let file_name = document.getElementById("file_name").value;
   let item_id = document.getElementById("item_id").value;
-  let amount = document.getElementById("saturation_num").value;
-  let money = document.getElementById("hiddensaturation_num").value;
-  let user_id = document.getElementById("use_duration").value;
-  let commands = `give @p[tag=!sneak,r=1,scores={sil=1000..}] ktfood:grim_drink3 1 `;
+  let amount = document.getElementById("amount").value;
+  let money = document.getElementById("money").value;
+  let user_id = document.getElementById("user_id").value;
+  let commands = `give @p[tag=!sneak,r=1,scores={sil=${amount}..}] ${item_id} 1 `;
   let DLlink = document.createElement( 'a' );
 	DLlink.href = window.URL.createObjectURL( new Blob( [Encodejson] ) );
 	DLlink.download = `${file_name}.json`;
