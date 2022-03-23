@@ -66,7 +66,7 @@ function form1(){
 }
 
 
-function from2(){
+function form2(){
   let Key1 = document.getElementById("Key1").value;
   let Key2 = document.getElementById("Key2").value;
   let Key3 = document.getElementById("Key3").value;
@@ -77,6 +77,9 @@ function from2(){
   let Key8 = document.getElementById("Key8").value;
   let Key9 = document.getElementById("Key9").value;
   let Keys = [];
+  let upKeys = [];
+  let centerKeys = [];
+  let downKeys = [];
 }
 
 
