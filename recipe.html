@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <title>item.json</title>
+   <link rel="stylesheet" href="main.css">
+   <script type="text/javascript" src="json.js"></script>
+   <script>
+    function inputChange(){
+     let Key1 = document.getElementsById('Key1');
+     let Key2 = document.getElementsById('Key2');
+     let Key3 = document.getElementsById('Key3');
+     let Key4 = document.getElementsById('Key4');
+     let Key5 = document.getElementsById('Key5');
+     let Key6 = document.getElementsById('Key6');
+     let Key7 = document.getElementsById('Key7');
+     let Key8 = document.getElementsById('Key8');
+     let Key9 = document.getElementsById('Key9');
+    }
+    let text = document.getElementsByClassName('Key');
+    text.onchange = inputChange;
+   </script>
+  </head>
+  <body>
+   <form id="form2" action="#">
+    レシピの形<br>
+     <input type="text" id="Key1" value="" class="Key" size="2" maxlength="1">
+     <input type="text" id="Key2" value="" class="Key" size="2" maxlength="1">
+     <input type="text" id="Key3" value="" class="Key" size="2" maxlength="1"><br>
+     <input type="text" id="Key4" value="" class="Key" size="2" maxlength="1">
+     <input type="text" id="Key5" value="" class="Key" size="2" maxlength="1">
+     <input type="text" id="Key6" value="" class="Key" size="2" maxlength="1"><br>
+     <input type="text" id="Key7" value="" class="Key" size="2" maxlength="1">
+     <input type="text" id="Key8" value="" class="Key" size="2" maxlength="1">
+     <input type="text" id="Key9" value="" class="Key" size="2" maxlength="1"><br>
+     
+    <br>
+    <input type="button" onclick="form2()" value="生成" class="input button">
+   </form><br><br><br>
+   <textarea readonly name="output" rows="30" cols="80" id="json_output"></textarea>
+  </body>
+ </html>
