@@ -47,6 +47,9 @@ function form1(){
       };
   };
   let Encodejson = JSON.stringify(JSONData, null, 2);
+
+/*https://elearn.jp/jmemo/javascript/memo-325.html*/
+
   let DLlink = document.createElement( 'a' );
 	DLlink.href = window.URL.createObjectURL( new Blob( [Encodejson] ) );
 	DLlink.download = `${file_name}.json`;
