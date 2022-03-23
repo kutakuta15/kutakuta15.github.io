@@ -68,9 +68,15 @@ function formB1(){
   let item_id = document.getElementById("item_id").value;
   let amount = document.getElementById("amount").value;
   let income = document.getElementById("income").checked;
-  let money = document.getElementById("money").value;
-  let user_id = document.getElementById("user_id").value;
-  let commands = `give @p[tag=!sneak,r=1,scores={sil=${amount}..}] ${item_id} 1 `;
+  let commands = '';
+  if(income){
+    let money = document.getElementById("money").value;
+    let user_id = document.getElementById("user_id").value;
+    commands = `execute @p[tag=!sneak,r=1,scores={sil=${amount}..}] ~~~ scoreboard players add ${user_id} sil ${money}\n
+execute @p[tag=sneak,r=1,scores={sil=${amount*10}..}] ~~~ scoreboard players add ${user_id} sil ${money*10}\n`;
+  }
+ 
+  commands = `${commands}give @p[tag=!sneak,r=1,scores={sil=${amount}..}] ${item_id} 1 `;
   let DLlink = document.createElement( 'a' );
 	DLlink.href = window.URL.createObjectURL( new Blob( [Encodejson] ) );
 	DLlink.download = `${file_name}.json`;
