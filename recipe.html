@@ -4,87 +4,19 @@
    <title>item.json</title>
    <link rel="stylesheet" href="main.css">
    <script type="text/javascript" src="json.js"></script>
-   <script>
-    function inputChange(){
-     let Key1 = document.getElementsById('Key1');
-     let Key2 = document.getElementsById('Key2');
-     let Key3 = document.getElementsById('Key3');
-     let Key4 = document.getElementsById('Key4');
-     let Key5 = document.getElementsById('Key5');
-     let Key6 = document.getElementsById('Key6');
-     let Key7 = document.getElementsById('Key7');
-     let Key8 = document.getElementsById('Key8');
-     let Key9 = document.getElementsById('Key9');
-     Keys = [];
-     Keys.push(Key1);
-     if(!Keys.includes(Key2))Keys.push(Key2);
-     if(!Keys.includes(Key3))Keys.push(Key3);
-     if(!Keys.includes(Key4))Keys.push(Key4);
-     if(!Keys.includes(Key5))Keys.push(Key5);
-     if(!Keys.includes(Key6))Keys.push(Key6);
-     if(!Keys.includes(Key7))Keys.push(Key7);
-     if(!Keys.includes(Key8))Keys.push(Key8);
-     if(!Keys.includes(Key9))Keys.push(Key9);
-     for(let a = Keys.length; 0 < a; a--){
-      let divId = "display_Key" + a;
-      document.getElementById(divId).style.display = "block";
-     }
-    }
-    let Keys = [];
-    let text = document.getElementsByClassName('Key');
-    text.onchange = inputChange;
-   </script>
   </head>
   <body>
    <form id="form2" action="#">
     レシピの形<br>
-     <input type="text" id="Key1" value="" class="Key" size="2" maxlength="1">  
-     <input type="text" id="Key2" value="" class="Key" size="2" maxlength="1">  
-     <input type="text" id="Key3" value="" class="Key" size="2" maxlength="1"><br><br>
-     <input type="text" id="Key4" value="" class="Key" size="2" maxlength="1">  
-     <input type="text" id="Key5" value="" class="Key" size="2" maxlength="1">  
-     <input type="text" id="Key6" value="" class="Key" size="2" maxlength="1"><br><br>
-     <input type="text" id="Key7" value="" class="Key" size="2" maxlength="1">  
-     <input type="text" id="Key8" value="" class="Key" size="2" maxlength="1">  
-     <input type="text" id="Key9" value="" class="Key" size="2" maxlength="1"><br><br>    
-     <br>
-     <div id="display_Key1" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey1"></textarea> = 
-      <input type="text" id="item_id1" value="">
-     </p></div><br>
-     <div id="display_Key2" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey2"></textarea> = 
-      <input type="text" id="item_id2" value="">
-     </p></div><br>
-     <div id="display_Key3" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey3"></textarea> = 
-      <input type="text" id="item_id3" value="">
-     </p></div><br>
-     <div id="display_Key4" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey4"></textarea> = 
-      <input type="text" id="item_id4" value="">
-     </p></div><br>
-     <div id="display_Key5" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey5"></textarea> = 
-      <input type="text" id="item_id5" value="">
-     </p></div><br>
-     <div id="display_Key6" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey6"></textarea> = 
-      <input type="text" id="item_id6" value="">
-     </p></div><br>
-     <div id="display_Key7" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey7"></textarea> = 
-      <input type="text" id="item_id7" value="">
-     </p></div><br>
-     <div id="display_Key8" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey8"></textarea> = 
-      <input type="text" id="item_id8" value="">
-     </p></div><br>
-     <div id="display_Key9" style="display:none;"><p>
-      <textarea readonly name="output" rows="1" cols="1" id="dKey9"></textarea> = 
-      <input type="text" id="item_id9" value="">
-     </p></div><br>
-    
+     <input type="text" id="Key1" value=""><br>
+     <input type="text" id="Key2" value=""><br>
+     <input type="text" id="Key3" value=""><br>
+     <input type="text" id="Key4" value=""><br>
+     <input type="text" id="Key5" value=""><br>
+     <input type="text" id="Key6" value=""><br>
+     <input type="text" id="Key7" value=""><br>
+     <input type="text" id="Key8" value=""><br>
+     <input type="text" id="Key9" value=""><br>
     <input type="button" onclick="form2()" value="生成" class="input button">
    </form><br><br><br>
    <textarea readonly name="output" rows="30" cols="80" id="json_output"></textarea>
