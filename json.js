@@ -66,6 +66,20 @@ function form1(){
 }
 
 
+function from2(){
+  let Key1 = document.getElementById("Key1").value;
+  let Key2 = document.getElementById("Key2").value;
+  let Key3 = document.getElementById("Key3").value;
+  let Key4 = document.getElementById("Key4").value;
+  let Key5 = document.getElementById("Key5").value;
+  let Key6 = document.getElementById("Key6").value;
+  let Key7 = document.getElementById("Key7").value;
+  let Key8 = document.getElementById("Key8").value;
+  let Key9 = document.getElementById("Key9").value;
+  let Keys = [];
+}
+
+
 function formB1(){
   let file_name = document.getElementById("file_name").value;
   let item_id = document.getElementById("item_id").value;
