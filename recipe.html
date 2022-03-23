@@ -26,7 +26,8 @@
      if(!Keys.includes(Keys8))Keys.push(Keys8);
      if(!Keys.includes(Keys9))Keys.push(Keys9);
      for(let a = Keys.length; 0 < a; a--){
-      document.getElementById(`display_Key${a}`).style.display = "block";
+      let divId = "display_Key" + a;
+      document.getElementById(divId).style.display = "block";
      }
     }
     let Keys = [];
