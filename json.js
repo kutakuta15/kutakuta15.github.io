@@ -73,10 +73,10 @@ function formB1(){
     let money = document.getElementById("money").value;
     let user_id = document.getElementById("user_id").value;
     commands = `execute @p[tag=!sneak,r=1,scores={sil=${amount}..}] ~~~ scoreboard players add ${user_id} sil ${money}\n
-execute @p[tag=sneak,r=1,scores={sil=${amount*10}..}] ~~~ scoreboard players add ${user_id} sil ${money*10}\n`;
+execute @p[tag=sneak,r=1,scores={sil=${amount*10}..}] ~~~ scoreboard players add ${user_id} sil ${money*10}\n\n`;
   }
  
-  commands = `${commands} give @p[tag=!sneak,r=1,scores={sil=${amount}..}] ${item_id} 1\n
+  commands = `${commands}give @p[tag=!sneak,r=1,scores={sil=${amount}..}] ${item_id} 1\n
 playsound random.orb @p[tag=!sneak,r=1,scores={sil=${amount}..}] ~~~ 1 2\n
 tellraw @p[tag=!sneak,r=1,scores={sil=${amount}..}] {"rawtext":[{"text":"§b購入成功！ / bought!\n-${amount}sil"}]}\n
 scoreboard players remove @p[tag=!sneak,r=1,scores={sil=${amount}..}] sil ${amount}\n
