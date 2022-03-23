@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <title>item.json</title>
+   <link rel="stylesheet" href="main.css">
+   <script type="text/javascript" src="json.js"></script>
+  </head>
+  <body>
+   <form id="form1" action="#">
+    アイテムID <br>
+     <input type="text" id="item_id" value="ktfood:grim_drink1" class="input"><br>
+    <br>
+    金額<br>
+    <input type="number" id="saturation_num" value="0" class="input"><br>
+    <br>
+    収入:<input type="checkbox" id="income"><p>
+    金額<br>
+    <input type="number" id="hiddensaturation_num" value="0" class="input"><br>
+    <br>
+    自分のID<br>
+    <input type="number" id="use_duration" value="1.6" class="input"><br>
+    </p><br>
+    <input type="button" onclick="form2()" value="生成" class="input button">
+   </form><br><br><br>
+   <textarea readonly name="output" rows="30" cols="80" id="json_output"></textarea>
+  </body>
+ </html>
