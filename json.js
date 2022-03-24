@@ -98,13 +98,13 @@ execute @p[tag=sneak,r=1,scores={sil=${amount*10}..}] ~~~ scoreboard players add
  
   commands = `${commands}give @p[tag=!sneak,r=1,scores={sil=${amount}..}] ${item_id} 1\n
 playsound random.orb @p[tag=!sneak,r=1,scores={sil=${amount}..}] ~~~ 1 2\n
-tellraw @p[tag=!sneak,r=1,scores={sil=${amount}..}] {"rawtext":[{"text":"§b購入成功！ / bought!\n-${amount}sil"}]}\n
+tellraw @p[tag=!sneak,r=1,scores={sil=${amount}..}] {"rawtext":[{"text":"§b購入成功！ / bought!\\n-${amount}sil"}]}\n
 scoreboard players remove @p[tag=!sneak,r=1,scores={sil=${amount}..}] sil ${amount}\n
 tellraw @p[tag=!sneak,r=1,scores={sil=..${amount-1}}] {"rawtext":[{"text":"§4所持金が不足しています！"}]}\n
 playsound note.bass @p[tag=!sneak,r=1,scores={sil=..${amount-1}}]\n
 give @p[tag=sneak,r=1,scores={sil=${amount*10}..}] ${item_id} 10\n
 playsound random.orb @p[tag=sneak,r=1,scores={sil=${amount*10}..}] ~~~ 1 2\n
-tellraw @p[tag=sneak,r=1,scores={sil=${amount*10}..}] {"rawtext":[{"text":"§b購入成功！ / bought!\n-${amount*10}sil"}]}\n
+tellraw @p[tag=sneak,r=1,scores={sil=${amount*10}..}] {"rawtext":[{"text":"§b購入成功！ / bought!\\n-${amount*10}sil"}]}\n
 scoreboard players remove @p[tag=sneak,r=1,scores={sil=${amount*10}..}] sil ${amount*10}\n
 tellraw @p[tag=sneak,r=1,scores={sil=..${amount*10-1}}] {"rawtext":[{"text":"§4所持金が不足しています！"}]}\n
 playsound note.bass @p[tag=sneak,r=1,scores={sil=..${amount*10-1}}]\n`;
