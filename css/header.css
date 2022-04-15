@@ -99,7 +99,8 @@ header a {
   .sm {
       top: 60px;
       left: 0px;
-      position: absolute;
+      position: fixed;
+      <!-- position: absolute; -->
       z-index: 10;
       width: 100%;
       background-color: rgba(34, 49, 52, 0.9);
