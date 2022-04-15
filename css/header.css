@@ -109,7 +109,7 @@ header a {
     flex-direction: column;
   }
 
-  a {
+  header a {
     text-align: center; 
     border-top: solid 0.5px rgba(255, 255, 255, 0.6);
   }
