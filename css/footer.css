@@ -6,9 +6,11 @@ footer {
   background-color: rgba(44, 48, 51);
   margin: 0;
 }
+
 footer.a {
   color: #0094ff;
 }
+
 p.footer {
   color: #ffffff;
 }
