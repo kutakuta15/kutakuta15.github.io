@@ -6,3 +6,7 @@ header {
   background-color: rgba(44, 48, 51);
   margin: 0;
 }
+
+header.a {
+  color: #0094ff;
+}
