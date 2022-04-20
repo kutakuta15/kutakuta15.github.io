@@ -122,3 +122,53 @@ playsound note.bass @p[tag=sneak,r=1,scores={sil=..${amount*10-1}}]\n`;
   document.execCommand("copy");
 
 }
+
+
+function formB2(){
+  let output;
+  let json = document.getElementById("json").value;
+  for(let a = 0; a < json["minecraft:npc_dialogue"]["scenes"].length; a++){
+    let scene = json["minecraft:npc_dialogue"]["scenes"][a];
+    let title = JSON.stringify(scene["npc_name"]);
+    let body = JSON.stringify(scene["text"]);
+    if(scene["text"]["rawtext"])body = JSON.stringify(scene["text"]["rawtext"][0]["text"]);
+    let buttons; let buttoncommands;
+    for(let b = 0; b < scene.buttons.length; b++){
+      if(scene.buttons[b].commands){
+        let commands;
+        for(let c = 0; c < scene.buttons[b].commands.length; c++){
+          let text = scene.buttons[b].commands[c].replace(/@initiator/g,'@s');
+          if(commands)commands = `${commands}\n        player.runCommand("${text}");`;
+          else commands = `player.runCommand("${text}");`;
+        };
+        let buttontext = scene.buttons[b].name;
+        if(scene.buttons[b].name.rawtext)buttontext = scene.buttons[b].name.rawtext[0].text;
+        if(buttoncommands)buttoncommands = `${buttoncommands}\n    if(response.selection === ${b}){
+        ${commands}
+      };`;
+        else buttoncommands = `if(response.selection === ${b}){
+        ${commands}
+      };`;
+        if(buttons)buttons = `${buttons}\n				.button(${JSON.stringify(buttontext)})`;
+        else buttons = `				.button(${JSON.stringify(buttontext)})`;
+      };
+    };
+    let form = `function showform(player){
+    let form = new ActionFormData()
+  				.title(${title})
+  				.body(${body})
+  ${buttons};
+    form.show(player).then((response) => {
+      ${buttoncommands}
+    });
+  };`;
+    if(output)output = `${output}\n\n${form}`
+    else output = form
+  }
+  document.getElementById("js_output").innerHTML = output;
+  let textarea = document.getElementsByTagName("textarea")[0];
+  // 文字をすべて選択
+  textarea.select();
+  // コピー
+  document.execCommand("copy");
+}
