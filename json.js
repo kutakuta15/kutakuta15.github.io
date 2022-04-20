@@ -138,30 +138,37 @@ function formB2(){
         let commands;
         for(let c = 0; c < scene.buttons[b].commands.length; c++){
           let text = scene.buttons[b].commands[c].replace(/@initiator/g,'@s');
-          if(commands)commands = `${commands}\n        player.runCommand("${text}");`;
+          if(commands)commands = `${commands}\n      player.runCommand("${text}");`;
           else commands = `player.runCommand("${text}");`;
         };
-        let buttontext = scene.buttons[b].name;
-        if(scene.buttons[b].name.rawtext)buttontext = scene.buttons[b].name.rawtext[0].text;
         if(buttoncommands)buttoncommands = `${buttoncommands}\n    if(response.selection === ${b}){
-        ${commands}
-      };`;
+      ${commands}
+    };`;
         else buttoncommands = `if(response.selection === ${b}){
-        ${commands}
-      };`;
-        if(buttons)buttons = `${buttons}\n				.button(${JSON.stringify(buttontext)})`;
-        else buttons = `				.button(${JSON.stringify(buttontext)})`;
+      ${commands}
+    };`;
       };
+      let buttontext = scene.buttons[b].name;
+      if(scene.buttons[b].name.rawtext)buttontext = scene.buttons[b].name.rawtext[0].text;
+      if(buttons)buttons = `${buttons}\n				.button(${JSON.stringify(buttontext)})`;
+      else buttons = `				.button(${JSON.stringify(buttontext)})`;
     };
-    let form = `function showform(player){
-    let form = new ActionFormData()
+    let form;
+    if(buttoncommands)form = `function showform(player){
+  let form = new ActionFormData()
   				.title(${title})
   				.body(${body})
   ${buttons};
-    form.show(player).then((response) => {
-      ${buttoncommands}
-    });
-  };`;
+  form.show(player).then((response) => {
+    ${buttoncommands}
+  });
+};`;
+    else form = `function showform(player){
+  let form = new ActionFormData()
+  				.title(${title})
+  				.body(${body})
+  ${buttons};
+};`;
     if(output)output = `${output}\n\n${form}`;
     else output = form;
   };
