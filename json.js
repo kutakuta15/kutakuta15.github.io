@@ -127,7 +127,6 @@ playsound note.bass @p[tag=sneak,r=1,scores={sil=..${amount*10-1}}]\n`;
 function formB2(){
   let output;
   let json = document.getElementById("json").value;
-  document.getElementById("js_output").innerHTML = json
   for(let a = 0; a < json["minecraft:npc_dialogue"]["scenes"].length; a++){
     let scene = json["minecraft:npc_dialogue"]["scenes"][a];
     let title = JSON.stringify(scene["npc_name"]);
@@ -163,9 +162,9 @@ function formB2(){
       ${buttoncommands}
     });
   };`;
-    if(output)output = `${output}\n\n${form}`
-    else output = form
-  }
+    if(output)output = `${output}\n\n${form}`;
+    else output = form;
+  };
   document.getElementById("js_output").innerHTML = output;
   let textarea = document.getElementsByTagName("textarea")[1];
   // 文字をすべて選択
