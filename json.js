@@ -125,7 +125,7 @@ playsound note.bass @p[tag=sneak,r=1,scores={sil=..${amount*10-1}}]\n`;
 
 
 function formB2(){
-document.getElementById("js_output").innerHTML = 'test1';
+document.getElementById("js_output").innerHTML = 'test5';
   let output;
   let json = document.getElementById("json").value;
   for(let a = 0; a < json["minecraft:npc_dialogue"]["scenes"].length; a++){
