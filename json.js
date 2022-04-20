@@ -129,6 +129,7 @@ document.getElementById("js_output").innerHTML = 'test1';
   let output;
   let json = document.getElementById("json").value;
   for(let a = 0; a < json["minecraft:npc_dialogue"]["scenes"].length; a++){
+document.getElementById("js_output").innerHTML = 'test4';
     let scene = json["minecraft:npc_dialogue"]["scenes"][a];
     let title = JSON.stringify(scene["npc_name"]);
     let body = JSON.stringify(scene["text"]);
