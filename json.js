@@ -123,8 +123,13 @@ playsound note.bass @p[tag=sneak,r=1,scores={sil=..${amount*10-1}}]\n`;
 
 }
 
-
 function formB2(){
+  let test = 'test!'
+  for(let a = 10; a--;)test = `${test},${a*a}`
+  document.getElementById("js_output").innerHTML = test;
+}
+
+/*function formB2(){
   let output;
   let json = document.getElementById("json").value;
   for(let a = 0; a < json["minecraft:npc_dialogue"]["scenes"].length; a++){
@@ -179,3 +184,4 @@ function formB2(){
   // コピー
   document.execCommand("copy");
 }
+*/
