@@ -138,8 +138,8 @@ function formB2(){
         let commands;
         for(let c = 0; c < scene.buttons[b].commands.length; c++){
           let text = scene.buttons[b].commands[c].replace(/@initiator/g,'@s');
-          if(commands)commands = `${commands}\n      player.runCommand('${text}');`;
-          else commands = `player.runCommand('${text}');`;
+          if(commands)commands = `${commands}\n      player.runCommand(\`${text}\`);`;
+          else commands = `player.runCommand(\`${text}\`);`;
         };
         if(buttoncommands)buttoncommands = `${buttoncommands}\n    if(response.selection === ${b}){
       ${commands}
