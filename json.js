@@ -166,7 +166,7 @@ function formB2(){
     else output = form
   }
   document.getElementById("js_output").innerHTML = output;
-  let textarea = document.getElementsByTagName("textarea")[0];
+  let textarea = document.getElementsByTagName("textarea")[1];
   // 文字をすべて選択
   textarea.select();
   // コピー
