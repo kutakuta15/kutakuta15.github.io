@@ -125,6 +125,7 @@ playsound note.bass @p[tag=sneak,r=1,scores={sil=..${amount*10-1}}]\n`;
 
 
 function formB2(){
+document.getElementById("js_output").innerHTML = 'test1';
   let output;
   let json = document.getElementById("json").value;
   for(let a = 0; a < json["minecraft:npc_dialogue"]["scenes"].length; a++){
@@ -133,6 +134,7 @@ function formB2(){
     let body = JSON.stringify(scene["text"]);
     if(scene["text"]["rawtext"])body = JSON.stringify(scene["text"]["rawtext"][0]["text"]);
     let buttons; let buttoncommands;
+document.getElementById("js_output").innerHTML = 'test2';
     for(let b = 0; b < scene.buttons.length; b++){
       if(scene.buttons[b].commands){
         let commands;
@@ -154,6 +156,7 @@ function formB2(){
       else buttons = `				.button(${JSON.stringify(buttontext)})`;
     };
     let form;
+document.getElementById("js_output").innerHTML = 'test3';
     if(buttoncommands)form = `function showform(player){
   let form = new ActionFormData()
   				.title(${title})
