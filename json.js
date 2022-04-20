@@ -128,20 +128,18 @@ function formB2(){
   let output;
   let json = JSON.parse(document.getElementById("json").value);
   for(let a = 0; a < json["minecraft:npc_dialogue"]["scenes"].length; a++){
-document.getElementById("js_output").innerHTML = 'test4';
     let scene = json["minecraft:npc_dialogue"]["scenes"][a];
     let title = JSON.stringify(scene["npc_name"]);
     let body = JSON.stringify(scene["text"]);
     if(scene["text"]["rawtext"])body = JSON.stringify(scene["text"]["rawtext"][0]["text"]);
     let buttons; let buttoncommands;
-document.getElementById("js_output").innerHTML = 'test2';
     for(let b = 0; b < scene.buttons.length; b++){
       if(scene.buttons[b].commands){
         let commands;
         for(let c = 0; c < scene.buttons[b].commands.length; c++){
           let text = scene.buttons[b].commands[c].replace(/@initiator/g,'@s');
-          if(commands)commands = `${commands}\n      player.runCommand("${text}");`;
-          else commands = `player.runCommand("${text}");`;
+          if(commands)commands = `${commands}\n      player.runCommand('${text}');`;
+          else commands = `player.runCommand('${text}');`;
         };
         if(buttoncommands)buttoncommands = `${buttoncommands}\n    if(response.selection === ${b}){
       ${commands}
@@ -156,7 +154,6 @@ document.getElementById("js_output").innerHTML = 'test2';
       else buttons = `				.button(${JSON.stringify(buttontext)})`;
     };
     let form;
-document.getElementById("js_output").innerHTML = 'test3';
     if(buttoncommands)form = `function showform(player){
   let form = new ActionFormData()
   				.title(${title})
