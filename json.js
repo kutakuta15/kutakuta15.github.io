@@ -133,6 +133,8 @@ function formB2(){
     let title = JSON.stringify(scene["npc_name"]);
     let body = JSON.stringify(scene["text"]);
     if(scene["text"]["rawtext"])body = JSON.stringify(scene["text"]["rawtext"][0]["text"]);
+    let opencommands;
+    if(scene["on_open_commands"])opencommands = `player.runCommand('${JSON.stringify(scene["on_open_commands"].join("')\n  player.runCommand('")).replace(/@initiator/g,'@s')}')`
     let buttons; let buttoncommands;
     for(let b = 0; b < scene.buttons.length; b++){
       if(scene.buttons[b].commands){
