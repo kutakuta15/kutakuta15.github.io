@@ -123,7 +123,6 @@ playsound note.bass @p[tag=sneak,r=1,scores={sil=..${amount*10-1}}]\n`;
 
 }
 
-
 function formB2(){
   let output;
   let json = JSON.parse(document.getElementById("json").value);
@@ -133,8 +132,11 @@ function formB2(){
     let title = JSON.stringify(scene["npc_name"]);
     let body = JSON.stringify(scene["text"]);
     if(scene["text"]["rawtext"])body = JSON.stringify(scene["text"]["rawtext"][0]["text"]);
-    let opencommands;
-    if(scene["on_open_commands"])opencommands = `player.runCommand('${JSON.stringify(scene["on_open_commands"].join("')\n  player.runCommand('")).replace(/@initiator/g,'@s')}')`
+    let opencommands; let closecommands;
+    if(scene["on_open_commands"])opencommands = `player.runCommand('${JSON.stringify(scene["on_open_commands"].join(")\n  player.runCommand("))}')`.replace(/'"/g,`'`).replace(/"'/g,`'`).replace(/@initiator/g,'@s');
+    if(scene["on_close_commands"])closecommands = `if(response.isCanceled){
+      player.runCommand('${JSON.stringify(scene["on_close_commands"].join(")\n  player.runCommand("))}')
+    }`.replace(/'"/g,`'`).replace(/"'/g,`'`).replace(/@initiator/g,'@s');
     let buttons; let buttoncommands;
     for(let b = 0; b < scene.buttons.length; b++){
       if(scene.buttons[b].commands){
@@ -156,10 +158,12 @@ function formB2(){
       if(buttons)buttons = `${buttons}\n				.button(${JSON.stringify(buttontext)})`;
       else buttons = `				.button(${JSON.stringify(buttontext)})`;
     };
-    let form = `function ${formName}(player){`
+    if(closecommands)buttoncommands = `${buttoncommands}\n    ${closecommands}`;
+    let form = `function ${formName.replace(/"/g,'')}(player){`
     if(opencommands)form = `${form}
   ${opencommands}`
-    form = `  let form = new ActionFormData()
+    form = `${form}
+  let form = new ActionFormData()
   				.title(${title})
   				.body(${body})
   ${buttons};`
@@ -168,8 +172,7 @@ function formB2(){
     ${buttoncommands}
   });
 `;
-    form = `${form}
-};`
+    form = `${form}};`
     if(output)output = `${output}\n\n${form}`;
     else output = form;
   };
@@ -180,4 +183,3 @@ function formB2(){
   // コピー
   document.execCommand("copy");
 }
-
