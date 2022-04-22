@@ -129,6 +129,7 @@ function formB2(){
   let json = JSON.parse(document.getElementById("json").value);
   for(let a = 0; a < json["minecraft:npc_dialogue"]["scenes"].length; a++){
     let scene = json["minecraft:npc_dialogue"]["scenes"][a];
+    let formName = JSON.stringify(scene["scene_tag"]) || "showform";
     let title = JSON.stringify(scene["npc_name"]);
     let body = JSON.stringify(scene["text"]);
     if(scene["text"]["rawtext"])body = JSON.stringify(scene["text"]["rawtext"][0]["text"]);
@@ -153,22 +154,20 @@ function formB2(){
       if(buttons)buttons = `${buttons}\n				.button(${JSON.stringify(buttontext)})`;
       else buttons = `				.button(${JSON.stringify(buttontext)})`;
     };
-    let form;
-    if(buttoncommands)form = `function showform(player){
-  let form = new ActionFormData()
+    let form = `function ${formName}(player){`
+    if(opencommands)form = `${form}
+  ${opencommands}`
+    form = `  let form = new ActionFormData()
   				.title(${title})
   				.body(${body})
-  ${buttons};
+  ${buttons};`
+    if(buttoncommands)form = `${form}
   form.show(player).then((response) => {
     ${buttoncommands}
   });
-};`;
-    else form = `function showform(player){
-  let form = new ActionFormData()
-  				.title(${title})
-  				.body(${body})
-  ${buttons};
-};`;
+`;
+    form = `${form}
+};`
     if(output)output = `${output}\n\n${form}`;
     else output = form;
   };
