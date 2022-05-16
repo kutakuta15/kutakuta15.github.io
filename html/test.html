@@ -1,8 +1,17 @@
 <html>
   <head>
     <script>
+      // URLを取得
+      let url = new URL(window.location.href);
+
+      // URLSearchParamsオブジェクトを取得
+      let params = url.searchParams;
+
+      // getメソッド
+      console.log(params.get('ip')); // 5
+      console.log(params.get('port')); // read
       window.onload = function(){
-        window.location.href = 'https://youtube.com';
+        window.location.href = 'minecraft://';
       }
     </script>
   </head>
