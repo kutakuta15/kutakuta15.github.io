@@ -8,10 +8,10 @@
       let params = url.searchParams;
 
       // getメソッド
-      console.log(params.get('ip')); // 5
-      console.log(params.get('port')); // read
+      let url = params.get('url');
+
       window.onload = function(){
-        window.location.href = 'minecraft://';
+        window.location.href = url;
       }
     </script>
   </head>
