@@ -6,3 +6,7 @@ body {
   background-color: rgba(118, 118, 118);
   margin: 0;
 }
+
+#center-text {
+  text-align: center;
+}
