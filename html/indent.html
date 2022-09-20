@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+ <script>
+  function manifest(){
+    let json = document.getElementById("json").value;
+    let outputJson = JSON.stringify(json,null,2);
+    document.getElementById("json_output").innerHTML = outputJson;
+    let a = document.getElementsByTagName("textarea").length - 1;
+    let textarea = document.getElementsByTagName("textarea")[a];
+    // 文字をすべて選択
+    textarea.select();
+    // コピー
+    document.execCommand("copy");
+  }
+ </script>
+</head>
+<body>
+ <textarea rows="30" cols="80" id="json"></textarea><br>
+ <input type="button" onclick="manifest()" value="Generate!" class="input button"><br>
+ <textarea readonly name="output" rows="30" cols="80" id="json_output"></textarea>
+</body>
