@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #clock {
+                border: solid 2px;
+                border-radius: 10px;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, 0);
+                text-align: center;
+                font-family: sans-serif;
+                background-color: rgba(44, 48, 51, 0.5);
+            }
+
+            #date {
+                color: rgba(0, 0, 0, 1);
+                font-size: 30px;
+            }
+
+            #time {
+                color: rgba(0, 0, 0, 1);
+                font-size: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="clock">
+            <script lang="javascript">
+                const getTime = () => {
+                    const date = new Date();
+                    const element = document.getElementById("clock");
+                    element.innerHTML = `<p id="date">${date.getFullYear() + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + ('0' + date.getDate()).slice(-2)}</div>
+                                         <p id="time">${('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2)}</div>`;
+                }
+                setInterval(getTime, 1000);
+            </script>    
+        </div>
+    </body>
+</html>
