@@ -1,2 +1,6 @@
 # kutakuta15.github.io
-本気で作る(めっちゃ楽しい)
+
+色々作ってみたいから作る
+時間があれば....
+
+https://kutakuta15.github.io/
