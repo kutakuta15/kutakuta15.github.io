@@ -8,24 +8,27 @@
     <meta content="website" property="og:type">
     <meta content="夢望" property="og:site_name">
     <meta content="邪魔するなら帰って～" property="og:description">
-    <meta content="https://kutakuta15.github.io/yunoh/" property="og:url">
-    <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" property="og:image">
+    <meta content="http://127.0.0.1:8080/yunoh/" property="og:url">
+    <meta content="http://127.0.0.1:8080/yunoh/image/yunoh-icon.png" property="og:image">
     <meta content="ja_JP" property="og:locale">
 
     <meta content="夢望" name="twitter:title">
     <meta content="邪魔するなら帰って～" name="description">
     <meta content="邪魔するなら帰って～" name="twitter:description">
     <meta content="summary_large_image" name="twitter:card">
-    <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" name="twitter:image">
+    <meta content="http://127.0.0.1:8080/yunoh/image/yunoh-icon.png" name="twitter:image">
 
-    <link rel="stylesheet" href="https://kutakuta15.github.io/yunoh/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="http://127.0.0.1:8080/yunoh/css/style.css">
+    <script src="http://127.0.0.1:8080/yunoh/js/lib.min.js"></script>
     <script>
-        $(function () {
-            $("#header").load("https://kutakuta15.github.io/yunoh/html/header.html");
-            $("#footer").load("https://kutakuta15.github.io/yunoh/html/footer.html");
-        });
+        loadHTML('#header', 'http://127.0.0.1:8080/yunoh/html/header.html');
+        loadHTML('#footer', 'http://127.0.0.1:8080/yunoh/html/footer.html');
     </script>
+    <style>
+        :root {
+            --logo-text: "Template";
+        }
+    </style>
 </head>
 
 <body>

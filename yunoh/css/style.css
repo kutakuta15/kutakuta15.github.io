@@ -1,15 +1,17 @@
 :root {
     /* メイン */
+    --logo-text: "夢望のサイト";
+    --logo-size: 30px;
     --bg-color: rgba(118, 118, 118);
 
     /* ヘッダー変数 */
     --header-height: 60px;
+    --header-text-color: #cfcfcf;
     --header-hamburger-color: white;
     --header-hamburger-menu-color: rgba(34, 49, 52, 0.9);
     --header-hamburger-line-height: 4px;
     --header-hamburger-border-radius: 8px;
     --header-hamburger-animation-duration: ease 0.75s;
-    --logo-size: 28px;
 
     /* フッター変数 */
     --footer-text-color: #fff;
@@ -46,6 +48,8 @@ body {
 
 #logo {
     font-size: var(--logo-size);
+    color: var(--header-text-color);
+    padding: 5px 20px;
 }
 
 #header {
@@ -58,7 +62,7 @@ body {
 }
 
 #header a {
-    color: #cfcfcf;
+    color: var(--header-text-color);
     text-decoration: none;
     display: block;
     line-height: var(--header-height);

@@ -1,6 +1,4 @@
-<div id="logo">
-    <a href="https://kutakuta15.github.io/yunoh/">夢望のサイト</a>
-</div>
+<div id="logo"></div>
 <div id="hamburger">
     <div class="icon">
         <span></span>
@@ -10,17 +8,24 @@
 </div>
 <nav id="header-menu">
     <ul>
-        <li><a href="https://kutakuta15.github.io/yunoh/">ホームページ</a></li>
-        <li><a href="https://kutakuta15.github.io/yunoh/pages/information.html">更新履歴</a></li>
-    </ul>
+        <li><a href="http://127.0.0.1:8080/yunoh/">Home</a></li>
+        <li><a href="http://127.0.0.1:8080/yunoh/pages/changelog.html">ChangeLog</a></li>
+        <li><a href="http://127.0.0.1:8080/yunoh/pages/contact.html">Contact</a></li>
+   </ul>
 </nav>
 <nav id="hamburger-menu" style="height: 0px">
     <ul>
-        <li><a href="https://kutakuta15.github.io/yunoh/">ホームページ</a></li>
-        <li><a href="https://kutakuta15.github.io/yunoh/pages/information.html">更新履歴</a></li>
+        <li><a href="http://127.0.0.1:8080/yunoh/">Home</a></li>
+        <li><a href="http://127.0.0.1:8080/yunoh/pages/changelog.html">ChangeLog</a></li>
+        <li><a href="http://127.0.0.1:8080/yunoh/pages/contact.html">Contact</a></li>
     </ul> 
 </nav>
 <script>
+    // ロゴタイトル
+    const logoText = getComputedStyle(document.documentElement).getPropertyValue('--logo-text').replace(/\"/g, '');
+    document.querySelector('#logo').textContent = logoText;
+
+    // 以下ハンバーガーメニュー
     document.querySelector('#hamburger')?.addEventListener('click', () => {
         console.log("test");
         const icons = document.getElementsByClassName("icon");
@@ -31,10 +36,8 @@
         const menu = document.getElementById("hamburger-menu");
         menu.classList.toggle("open");
         if (menu.classList.contains("open")) {
-            // menu.style.display = 'block';
             menu.style.height = menu.scrollHeight + 'px';
         } else {
-            // menu.style.display = 'none';
             menu.style.height = '0';
         }
     });
