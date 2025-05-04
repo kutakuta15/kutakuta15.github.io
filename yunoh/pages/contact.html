@@ -19,21 +19,21 @@
     <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" name="twitter:image">
 
     <link rel="stylesheet" href="https://kutakuta15.github.io/yunoh/css/style.css">
-    <script src="https://kutakuta15.github.io/yunoh/js/lib.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("https://kutakuta15.github.io/yunoh/html/header.html");
+            $("#footer").load("https://kutakuta15.github.io/yunoh/html/footer.html");
+        });
+    </script>
 </head>
 
 <body>
     <div id="header"></div>
     <main>
-        <div id="content">
-            <p>テスト1234</p>
-        </div>
+        <div id="content"></div>
     </main>
     <div id="footer"></div>
-    <script>
-        loadHTML('#header', 'https://kutakuta15.github.io/yunoh/html/header.html');
-        loadHTML('#footer', 'https://kutakuta15.github.io/yunoh/html/footer.html');
-    </script>
 </body>
 
 </html>

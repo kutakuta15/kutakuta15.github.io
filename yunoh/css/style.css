@@ -1,18 +1,71 @@
+:root {
+    /* メイン */
+    --bg-color: rgba(118, 118, 118);
+
+    /* ヘッダー変数 */
+    --header-height: 60px;
+    --header-hamburger-color: white;
+    --header-hamburger-menu-color: rgba(34, 49, 52, 0.9);
+    --header-hamburger-line-height: 4px;
+    --header-hamburger-border-radius: 8px;
+    --header-hamburger-animation-duration: ease 0.75s;
+    --logo-size: 28px;
+
+    /* フッター変数 */
+    --footer-text-color: #fff;
+    --footer-link-color: #0094ff;
+
+    /* ヘッダー・フッター共通変数 */
+    --header-footer-bg-color: rgba(44, 48, 51);
+}
+
 body {
-    background-color: rgba(118, 118, 118);
+    background-color: var(--bg-color);
     margin: 0;
 }
 
-#header {
-    height: 60px;
+/* 以下フッター */
+
+#footer {
     width: 100%;
-    background-color: rgba(44, 48, 51);
+    height: 100px;
+    color: var(--footer-text-color);
+    text-align: center;
+    background-color: var(--header-footer-bg-color);
+}
+
+#footer .content {
+    padding: 20px 0;
+}
+
+#footer a {
+    color: var(--footer-link-color);
+}
+
+/* 以下ヘッダー */
+
+#logo {
+    font-size: var(--logo-size);
+}
+
+#header {
+    height: var(--header-height);
+    width: 100%;
+    background-color: var(--header-footer-bg-color);
     position: sticky;
     top: 0;
     display: flex;
 }
 
-#header nav {
+#header a {
+    color: #cfcfcf;
+    text-decoration: none;
+    display: block;
+    line-height: var(--header-height);
+    padding: 0 20px;
+}
+
+#header-menu {
     margin: 0 0 0 auto;
 }
 
@@ -23,85 +76,64 @@ body {
     margin: 0;
 }
 
-#header .logo {
-    font-size: 25px;
+#hamburger-menu {
+    width: 0px;
+    height: 0px;
 }
 
-#header .sm {
-    display: none;
+#hamburger-menu ul {
+    flex-direction: column;
 }
 
-#header a {
-    color: #cfd2d4;
-    text-decoration: none;
-    display: block;
-    line-height: 60px;
-    padding: 0 20px;
-}
-
-#footer {
-    width: 100%;
-    height: 100px;
-    color: #fff;
-    text-align: center;
-    background-color: rgba(44, 48, 51);
-}
-
-#footer .content {
-    padding: 20px 0;
-}
-
-/* フッターのリンクの色 */
-#footer a {
-    color: #0094ff;
-}
-
-
-
-/**********************************　
-  以下、ハンバーガーメニューの設定　
-  ************************************/
-
-  @media (max-width: 400px) {
-
-    .pc {
+@media (max-width: 1000px) {
+    #header-menu {
         display: none;
     }
 
     #hamburger {
         background-color: transparent;
         position: relative;
-        cursor: pointer;
         margin: 0 0 0 auto;
-        height: 60px;
-        width: 60px;
+        cursor: pointer;
+        height: var(--header-height);
+        width: var(--header-height);
+    }
+
+    #hamburger-menu {
+        top: var(--header-height);
+        left: 0px;
+        position: absolute;
+        width: 100%;
+        background-color: var(--header-hamburger-menu-color);
+        transition: var(--header-hamburger-animation-duration);
+        overflow: hidden;
     }
 
     .icon span {
         position: absolute;
-        left: 15px;
-        width: 30px;
-        height: 4px;
-        background-color: white;
-        border-radius: 8px;
-        transition: ease 0.75s;
+        left: calc(var(--header-height) / 4);
+        width: calc(var(--header-height) / 2);
+        height: var(--header-hamburger-line-height);
+        background-color: var(--header-hamburger-color);
+        border-radius: var(--header-hamburger-border-radius);
+        transition: var(--header-hamburger-animation-duration);
     }
 
     .icon span:nth-of-type(1) {
-        top: 16px;
+        top: calc((var(--header-height) - (var(--header-hamburger-line-height) * 3)) / 3 - var(--header-hamburger-line-height));
     }
 
     .icon span:nth-of-type(2) {
-        top: 28px;
+        top: calc((var(--header-height) - (var(--header-hamburger-line-height) * 3)) / 3 * 2 - var(--header-hamburger-line-height));
     }
 
     .icon span:nth-of-type(3) {
-        bottom: 16px;
+        top: calc((var(--header-height) - (var(--header-hamburger-line-height) * 3)) - var(--header-hamburger-line-height));
     }
 
     .close span:nth-of-type(1) {
-        transform: rotate(45deg);
-        top: 28px;
+        transform: rotate(-45deg);
+        top: calc((var(--header-height) - (var(--header-hamburger-line-height) * 3)) / 3 * 2 - var(--header-hamburger-line-height));
     }
 
     .close span:nth-of-type(2) {
@@ -109,26 +141,7 @@ body {
     }
 
     .close span:nth-of-type(3) {
-        transform: rotate(-45deg);
-        top: 28px;
-    }
-
-    .sm {
-        top: 60px;
-        left: 0px;
-        position: absolute;
-        z-index: 10;
-        width: 100%;
-        background-color: rgba(34, 49, 52, 0.9);
-    }
-
-    ul {
-        flex-direction: column;
-    }
-
-
-    header a {
-        text-align: center;
-        /*border-top: solid 0.5px rgba(255, 255, 255, 0.6);*/
+        transform: rotate(45deg);
+        top: calc((var(--header-height) - (var(--header-hamburger-line-height) * 3)) / 3 * 2 - var(--header-hamburger-line-height));
     }
 }
