@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>PixelArt to SVG</title>
+  <meta content="夢望" property="og:title">
+  <meta content="website" property="og:type">
+  <meta content="夢望" property="og:site_name">
+  <meta content="邪魔するなら帰って～" property="og:description">
+  <meta content="https://kutakuta15.github.io/yunoh/" property="og:url">
+  <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" property="og:image">
+  <meta content="ja_JP" property="og:locale">
+
+  <meta content="夢望" name="twitter:title">
+  <meta content="邪魔するなら帰って～" name="description">
+  <meta content="邪魔するなら帰って～" name="twitter:description">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" name="twitter:image">
+  <link rel="shortcut icon" href="https://kutakuta15.github.io/yunoh/image/favicon.ico">
+  <link rel="icon" href="https://kutakuta15.github.io/yunoh/image/favicon.ico">
+
+  <link rel="stylesheet" href="https://kutakuta15.github.io/yunoh/css/style.css">
+  <script src="https://kutakuta15.github.io/yunoh/js/lib.min.js"></script>
+  <script>
+    loadHTML('#header', 'https://kutakuta15.github.io/yunoh/html/header.html');
+    loadHTML('#footer', 'https://kutakuta15.github.io/yunoh/html/footer.html');
+  </script>
+  <style>
+    :root {
+      --logo-text: "PixelArt to SVG";
+    }
+
+    #content {
+      padding: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+  <main>
+    <div id="content">
+      <h1>ドット絵PNG → SVG変換</h1>
+      <input type="file" id="imageInput" accept="image/png" />
+      <h3>選択画像</h3>
+      <div id="svgDisplay"></div>
+      <h3>出力データ</h3>
+      <textarea id="svgOutput" style="width: 100%; height: 500px; resize: none;" readonly></textarea>
+
+      <script>
+        document.getElementById('imageInput').addEventListener('change', function (e) {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const img = new Image();
+          img.onload = () => {
+            const width = img.width;
+            const height = img.height;
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+
+            const imageData = ctx.getImageData(0, 0, width, height).data;
+
+            let svg = `<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">`;
+
+            for (let y = 0; y < height; y++) {
+              let x = 0;
+              while (x < width) {
+                const i = (y * width + x) * 4;
+                const r = imageData[i];
+                const g = imageData[i + 1];
+                const b = imageData[i + 2];
+
+                const color = `rgb(${r},${g},${b})`;
+                let runLength = 1;
+
+                // 連続する同じ色のピクセルを検出
+                while (
+                  x + runLength < width
+                ) {
+                  const j = (y * width + x + runLength) * 4;
+                  const rr = imageData[j];
+                  const gg = imageData[j + 1];
+                  const bb = imageData[j + 2];
+                  const nextColor = `rgb(${rr},${gg},${bb})`;
+                  if (nextColor !== color) break;
+                  runLength++;
+                }
+
+                svg += `<rect x="${x}" y="${y}" width="${runLength}" height="1" fill="${color}"/>`;
+                x += runLength;
+              }
+            }
+
+            svg += `</svg>`;
+
+            document.getElementById('svgDisplay').innerHTML = svg;
+            document.getElementById('svgOutput').value = svg;
+
+            let fileName = file.name;
+            fileName = fileName.substr(0, fileName.lastIndexOf("."));
+            let DLlink = document.createElement('a');
+            DLlink.href = window.URL.createObjectURL(new Blob([svg]));
+            DLlink.download = `${fileName}.svg`;
+            DLlink.click();
+          };
+
+          img.src = URL.createObjectURL(file);
+        });
+      </script>
+    </div>
+  </main>
+  <div id="footer"></div>
+</body>
+
+</html>
