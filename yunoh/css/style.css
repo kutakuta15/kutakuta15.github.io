@@ -81,8 +81,7 @@ body {
 }
 
 #hamburger-menu {
-    width: 0px;
-    height: 0px;
+    display: none;
 }
 
 #hamburger-menu ul {
@@ -104,6 +103,7 @@ body {
     }
 
     #hamburger-menu {
+        display: block;
         top: var(--header-height);
         left: 0px;
         position: absolute;
