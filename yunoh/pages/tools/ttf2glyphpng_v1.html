@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unicode Glyph画像生成</title>
+    <meta content="夢望" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="夢望" property="og:site_name">
+    <meta content="邪魔するなら帰って～" property="og:description">
+    <meta content="https://kutakuta15.github.io/yunoh/" property="og:url">
+    <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" property="og:image">
+    <meta content="ja_JP" property="og:locale">
+
+    <meta content="夢望" name="twitter:title">
+    <meta content="邪魔するなら帰って～" name="description">
+    <meta content="邪魔するなら帰って～" name="twitter:description">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" name="twitter:image">
+    <link rel="shortcut icon" href="https://kutakuta15.github.io/yunoh/image/favicon.ico">
+    <link rel="icon" href="https://kutakuta15.github.io/yunoh/image/favicon.ico">
+
+    <link rel="stylesheet" href="https://kutakuta15.github.io/yunoh/css/style.css">
+    <script type="text/javascript" src="https://kutakuta15.github.io/yunoh/js/lib.min.js"></script>
+    <script>
+        loadHTML('#header', 'https://kutakuta15.github.io/yunoh/html/header.html');
+        loadHTML('#footer', 'https://kutakuta15.github.io/yunoh/html/footer.html');
+    </script>
+    <style>
+        :root {
+            --logo-text: ".ttf to Glyph.png";
+        }
+
+        #progress-container {
+            margin-top: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        #progress {
+            width: 100%;
+            height: 20px;
+        }
+
+        #status {
+            font-family: monospace;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <main>
+        <div id="content">
+            <h1>TTFフォントからUnicode全範囲のGlyph画像を生成（1024x1024・透過・白文字）</h1>
+            <input type="file" id="fontFile" accept=".ttf" multiple />
+            <button id="generate">画像生成＆ZIP出力</button>
+
+            <div id="progress-container">
+                <progress id="progress" value="0" max="256"></progress>
+                <div id="status">待機中...</div>
+            </div>
+            <script type="text/javascript" src="https://kutakuta15.github.io/yunoh/js/tools/ttf2glyphpng_v1.min.js"></script>
+        </div>
+    </main>
+    <div id="footer"></div>
+</body>
+
+</html>
