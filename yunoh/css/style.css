@@ -24,16 +24,21 @@
 body {
     background-color: var(--bg-color);
     margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* 以下フッター */
 
 #footer {
-    width: 100%;
+    width: 100vw;
     height: 100px;
     color: var(--footer-text-color);
     text-align: center;
     background-color: var(--header-footer-bg-color);
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #footer .content {
@@ -54,11 +59,13 @@ body {
 
 #header {
     height: var(--header-height);
-    width: 100%;
+    width: 100vw;
     background-color: var(--header-footer-bg-color);
     position: sticky;
     top: 0;
     display: flex;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #header a {
