@@ -1,1 +1,2 @@
 npx http-server
+npx uglifyjs input.js -o output.js -c
