@@ -33,6 +33,14 @@ body {
     padding: 4px;
 }
 
+a {
+    color: #00e
+}
+
+a:visited {
+    color: #00e
+}
+
 /* 以下フッター */
 
 #footer {
