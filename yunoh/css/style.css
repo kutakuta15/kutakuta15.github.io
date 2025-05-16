@@ -75,7 +75,6 @@ a:visited {
     position: sticky;
     top: 0;
     display: flex;
-    overflow: hidden;
     white-space: nowrap;
 }
 
