@@ -4,15 +4,10 @@ const cellSize = canvasSize / gridSize;
 
 const toHex2 = n => n.toString(16).padStart(2, '0').toUpperCase();
 
-function createFontFace(name, data) {
-    const blob = new Blob([data], { type: "font/ttf" });
-    const url = URL.createObjectURL(blob);
-    const style = document.createElement("style");
-    style.textContent = `@font-face {
-        font-family: '${name}';
-        src: url(${url});
-      }`;
-    document.head.appendChild(style);
+async function createFontFace(name, data) {
+    const font = new FontFace(name, data);
+    await font.load();
+    document.fonts.add(font);
 }
 
 // 文字が半角かどうかを判定する関数
@@ -131,7 +126,7 @@ document.getElementById('generate').onclick = async () => {
     for (const file of files) {
         const buffer = await file.arrayBuffer();
         const name = file.name.replace(/\W/g, "_");
-        createFontFace(name, buffer);
+        await createFontFace(name, buffer);
         useFonts.push(name);
     }
 
