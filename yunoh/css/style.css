@@ -51,6 +51,9 @@ a:visited {
     overflow: hidden;
     white-space: nowrap;
     font-display: block;
+
+    position: absolute;
+    bottom: 0;
 }
 
 #footer .content {
