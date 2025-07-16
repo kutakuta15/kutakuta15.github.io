@@ -1,14 +1,70 @@
-<!-- Google tag (gtag.js) Google Analytics -->
-<script src="https://www.googletagmanager.com/gtag/js?id=G-CHY0N90V6H"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="ja">
 
-    gtag('config', 'G-CHY0N90V6H');
-</script>
-<script>
-    window.onload = function () {
-        window.location.href = "https://drive.google.com/file/d/1o5ku1K--FdqG_VcNAryub0m51pyu4zuj/view?usp=sharing";
-    }
-</script>
+<head>
+    <meta charset="UTF-8">
+    <title>夢望</title>
+    <meta content="夢望" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="夢望" property="og:site_name">
+    <meta content="邪魔するなら帰って～" property="og:description">
+    <meta content="https://kutakuta15.github.io/yunoh/" property="og:url">
+    <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" property="og:image">
+    <meta content="ja_JP" property="og:locale">
+
+    <meta content="夢望" name="twitter:title">
+    <meta content="邪魔するなら帰って～" name="description">
+    <meta content="邪魔するなら帰って～" name="twitter:description">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="https://kutakuta15.github.io/yunoh/image/yunoh-icon.png" name="twitter:image">
+    <link rel="shortcut icon" href="https://kutakuta15.github.io/yunoh/image/favicon.ico">
+    <link rel="icon" href="https://kutakuta15.github.io/yunoh/image/favicon.ico">
+
+    <link rel="stylesheet" href="https://kutakuta15.github.io/yunoh/css/style.css">
+    <script type="text/javascript" src="https://kutakuta15.github.io/yunoh/js/lib.min.js"></script>
+    <script>
+        loadHTML('#header', 'https://kutakuta15.github.io/yunoh/html/header.html');
+        loadHTML('#footer', 'https://kutakuta15.github.io/yunoh/html/footer.html');
+    </script>
+    <style>
+        :root {
+            --logo-text: "Redirecting...";
+        }
+    </style>
+    <!-- Google tag (gtag.js) Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHY0N90V6H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CHY0N90V6H', {
+            'page_title': 'SkyDrive - Redirecting'
+        });
+    </script>
+    <script>
+        window.onload = function () {
+            // GAイベント送信後にリダイレクト
+            gtag('event', 'redirect_to_drive', {
+                'event_category': 'navigation',
+                'event_label': 'drive_link',
+                'event_callback': function () {
+                    window.location.href = "https://drive.google.com/file/d/1o5ku1K--FdqG_VcNAryub0m51pyu4zuj/view?usp=sharing";
+                },
+                'event_timeout': 2000 // 念のため、2秒後に自動実行
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <main>
+        <div id="content">
+            <p style='text-align:center;font-size:1.2em;'>リダイレクト中です。しばらくお待ちください...</p>
+        </div>
+    </main>
+    <div id="footer"></div>
+</body>
+
+</html>
