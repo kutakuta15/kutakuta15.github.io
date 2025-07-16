@@ -29,6 +29,10 @@ body {
     overflow: hidden;
 }
 
+#content {
+    padding: 4px;
+}
+
 /* 以下フッター */
 
 #footer {
