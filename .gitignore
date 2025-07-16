@@ -6,4 +6,3 @@ package-lock.json
 node_modules/
 
 #共通無視拡張子
-*.url
