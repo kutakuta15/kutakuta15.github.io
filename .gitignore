@@ -1,5 +1,4 @@
 #無視ファイル
-package.json
 package-lock.json
 
 #共通無視フォルダ
