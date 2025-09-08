@@ -14,7 +14,7 @@
     --header-hamburger-animation-duration: ease 0.75s;
 
     /* フッター変数 */
-    --footer-text-color: #fff;
+    --footer-text-color: #ddd;
     --footer-link-color: #0094ff;
 
     /* ヘッダー・フッター共通変数 */
@@ -29,7 +29,8 @@ body {
 }
 
 #content {
-    padding: 4px;
+    margin: 35px 25px;
+    color: #ddd;
 }
 
 a {
