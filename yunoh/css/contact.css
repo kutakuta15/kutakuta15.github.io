@@ -1,0 +1,17 @@
+a {
+    text-decoration: none;
+    color: #ddd;
+}
+
+a:visited {
+    color: #ddd;
+}
+
+.contact {
+    font-size: 150%;
+}
+
+.contact img {
+    width: 19.2px;
+    height: 19.2px;
+}
