@@ -20,7 +20,7 @@ function replaceUrlInFolder(dir, mode) {
 }
 
 replaceUrlInFolder(__dirname, true);
-const server = exec('npx http-server');
+const server = exec('npx http-server --port 8080');
 server.stdout.on('data', data => process.stdout.write(data));
 server.stderr.on('data', data => process.stderr.write(data));
 process.on('SIGINT', () => {
