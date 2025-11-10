@@ -9,18 +9,18 @@ async function loadHTML(selector, url) {
 async function load(selector, url) {
     const container = document.querySelector(selector);
     const html = await fetch(url).then(res => res.text());
-    
+
     const parse = document.createElement('div');
     parse.innerHTML = html;
 
     const scripts = parse.querySelectorAll('script');
     scripts.forEach(script => script.remove());
 
-    container.innerHTML = parse.innerHTML;
+    container.insertAdjacentHTML('beforeend', parse.innerHTML);
 
     scripts.forEach(script => {
         const createScript = document.createElement('script');
-        if(script.src) {
+        if (script.src) {
             createScript.src = script.src;
             createScript.async = false;
         } else {
@@ -30,3 +30,5 @@ async function load(selector, url) {
         container.appendChild(createScript);
     });
 }
+
+function rand(min, max) { return Math.random() * (max - min) + min; }
